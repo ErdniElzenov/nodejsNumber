@@ -30,10 +30,6 @@ app.post("/", urlencodedParser, function (request, response) {
 
    let fater = request.body.userEmail
 
-
-
-
-    
     const val = request.body.userData;
     const myArry = (val.split(''));
     if(Number(myArry[0] + myArry[1]) == 20 || Number(myArry[0] + myArry[1]) == 19){
@@ -323,6 +319,17 @@ if(energy === 2){
   if(memory > 3){
     memory = 3;
   }
+    // life 
+if(life < 1 ){
+  life = 1;
+}
+if(life > 4){
+life = 4;
+}
+
+
+
+
        async function main(textMail){
          let transporter = nodemailer.createTransport({
          host: "smtp.mail.ru",
@@ -341,7 +348,7 @@ if(energy === 2){
          to: fater, // list of receivers
          subject: "Здравствуйте   " + request.body.userName  , // Subject line
          text: textMail, // plain text body
-         html: "<h1>Здравствуйте " + request.body.userName  + "</h1>" + "<br>" + destinyArry[fate[4] - 1 ]+ "<br>"+ characterArry[character - 2] +  energyArry[energy - 3] + interestArry[interest - 2 ]+ healthArry[health - 1] + logicsArry[logics - 1] + workArry[work - 1] + luckArry[luck -1] + dutyArry[duty - 2] + memoryArry[memory - 2] + temperamentArry[temperament - 1] + purposefulnessArry[purposefulness - 1 ] + familyArry[family - 2] + stabilityArry[stability - 3],// html body
+         html: "<h1>Здравствуйте " + request.body.userName  + "</h1>" + "<br>" + destinyArry[fate[4] - 1 ]+ "<br>"+ characterArry[character - 2] +  energyArry[energy - 3] + interestArry[interest - 2 ]+ healthArry[health - 1] + logicsArry[logics - 1] + workArry[work - 1] + luckArry[luck -1] + dutyArry[duty - 2] + memoryArry[memory - 2] + temperamentArry[temperament - 1] + purposefulnessArry[purposefulness - 1 ] + familyArry[family - 2] + stabilityArry[stability - 3] + lifeArry[life - 1],// html body
        });
      
        console.log("Message sent: %s", info.messageId);
